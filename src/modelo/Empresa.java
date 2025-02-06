@@ -1,5 +1,7 @@
 package modelo;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
+
 import modelo.Empleado;
 
 public class Empresa {
@@ -26,14 +28,27 @@ public class Empresa {
 	public void eliminarEmpleado(String documento) {
 		listaEmpleados.removeIf(empleado -> empleado.getDocumento().equals(documento));
 	}
-	/*public boolean existeEmpleado(String documento) {
+	public boolean existeEmpleado(String documento) {
+		boolean bandera = false;
 		for(int i = 0; i < listaEmpleados.size(); i++) {
 			if(listaEmpleados.get(i).getDocumento().equals(documento)) {
-				return true;
+				bandera = true;
+				
 			}
-		
-		}return false;
-	}*/
+		}return bandera;
+	}
+	public Empleado empleadoMayorSueldo() {
+		if(listaEmpleados.isEmpty()) {
+			throw new NoSuchElementException("No hay empleados cargados en la empresa.");
+		}
+		Empleado empMayorSueldo = listaEmpleados.get(0);//tomar como referencia el primer empleado
+		for(int i = 0; i < listaEmpleados.size(); i++) {
+			if(listaEmpleados.get(i).calcularSueldoNeto() > empMayorSueldo.calcularSueldoNeto()) {
+				empMayorSueldo = listaEmpleados.get(i);
+			}
+		}
+		return empMayorSueldo;
+	}
 	
 	
 }

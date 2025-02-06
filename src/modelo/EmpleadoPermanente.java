@@ -28,11 +28,11 @@ public class EmpleadoPermanente extends Empleado{
 
 	@Override
 	protected double calcularSueldoNeto() {
-		double sueldoNeto = getSueldoBruto();
+		double multiplicador = 1 - 0.15; //Descuentos del sueldo por Obra Social
 		if(aniosAntiguedad > 5) {
-			sueldoNeto = getSueldoBruto() * 0.05;
+			multiplicador += 0.05; //Bonificacion por años de antiguedad
 		}
-		return sueldoNeto;
+		return getSueldoBruto() * multiplicador;
 		
 	}
 	

@@ -1,21 +1,21 @@
 package modelo;
 
 public class EmpleadoContratado extends Empleado{
-	private String duracionContrato;
+	private double duracionHorasContrato;
 	private double montoPorHora;
 
-	protected EmpleadoContratado(String documento, String nombre, double sueldoBruto, String duracionContrato, double montoPorHora) {
+	protected EmpleadoContratado(String documento, String nombre, double sueldoBruto, double duracionContrato, double montoPorHora) {
 		super(documento, nombre, sueldoBruto);
-		this.duracionContrato = duracionContrato;
+		this.duracionHorasContrato = duracionContrato;
 		this.montoPorHora = montoPorHora;
 	}
 
-	public String getDuracionContrato() {
-		return duracionContrato;
+	public double getDuracionContrato() {
+		return duracionHorasContrato;
 	}
 
-	public void setDuracionContrato(String duracionContrato) {
-		this.duracionContrato = duracionContrato;
+	public void setDuracionContrato(double duracionContrato) {
+		this.duracionHorasContrato = duracionContrato;
 	}
 
 	public double getMontoPorHora() {
@@ -28,9 +28,7 @@ public class EmpleadoContratado extends Empleado{
 
 	@Override
 	protected double calcularSueldoNeto() {
-		return montoPorHora;
-		// TODO Auto-generated method stub
-		
+		return montoPorHora * duracionHorasContrato * 0.90;
 	}
 	
 
