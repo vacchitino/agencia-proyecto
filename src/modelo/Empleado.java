@@ -28,6 +28,6 @@ public abstract class Empleado {
 	public void setSueldoBruto(double sueldoBruto) {
 		this.sueldoBruto = sueldoBruto;
 	}
-	protected abstract double calcularSueldoNeto();
+	public abstract double calcularSueldoNeto();
 	
 }

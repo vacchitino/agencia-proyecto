@@ -4,7 +4,7 @@ public class EmpleadoPermanente extends Empleado{
 	private double aniosAntiguedad;
 	private String obraSocial;
 
-	protected EmpleadoPermanente(String documento, String nombre, double sueldoBruto, double aniosAntiguedad, String obraSocial) {
+	public EmpleadoPermanente(String documento, String nombre, double sueldoBruto, double aniosAntiguedad, String obraSocial) {
 		super(documento, nombre, sueldoBruto);
 		this.aniosAntiguedad = aniosAntiguedad;
 		this.obraSocial = obraSocial;
@@ -27,7 +27,7 @@ public class EmpleadoPermanente extends Empleado{
 	}
 
 	@Override
-	protected double calcularSueldoNeto() {
+	public double calcularSueldoNeto() {
 		double multiplicador = 1 - 0.15; //Descuentos del sueldo por Obra Social
 		if(aniosAntiguedad > 5) {
 			multiplicador += 0.05; //Bonificacion por años de antiguedad

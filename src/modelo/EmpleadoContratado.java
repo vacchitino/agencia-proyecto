@@ -4,7 +4,7 @@ public class EmpleadoContratado extends Empleado{
 	private double duracionHorasContrato;
 	private double montoPorHora;
 
-	protected EmpleadoContratado(String documento, String nombre, double sueldoBruto, double duracionContrato, double montoPorHora) {
+	public EmpleadoContratado(String documento, String nombre, double sueldoBruto, double duracionContrato, double montoPorHora) {
 		super(documento, nombre, sueldoBruto);
 		this.duracionHorasContrato = duracionContrato;
 		this.montoPorHora = montoPorHora;
@@ -27,7 +27,7 @@ public class EmpleadoContratado extends Empleado{
 	}
 
 	@Override
-	protected double calcularSueldoNeto() {
+	public double calcularSueldoNeto() {
 		return montoPorHora * duracionHorasContrato * 0.90;
 	}
 	

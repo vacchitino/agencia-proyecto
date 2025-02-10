@@ -22,20 +22,17 @@ public class Empresa {
 		}
 		return instancia;
 	}
+	//Agrega un empleado
 	public void agregarEmpleado(Empleado e) {
 		listaEmpleados.add(e);
 	}
+	//Elimina un empleado dado el numero de documento
 	public void eliminarEmpleado(String documento) {
 		listaEmpleados.removeIf(empleado -> empleado.getDocumento().equals(documento));
 	}
+	//Busca el empleado pasando su documento por parametro
 	public boolean existeEmpleado(String documento) {
-		boolean bandera = false;
-		for(int i = 0; i < listaEmpleados.size(); i++) {
-			if(listaEmpleados.get(i).getDocumento().equals(documento)) {
-				bandera = true;
-				
-			}
-		}return bandera;
+		return listaEmpleados.stream().anyMatch(empleado -> empleado.getDocumento().equals(documento));	
 	}
 	public Empleado empleadoMayorSueldo() {
 		if(listaEmpleados.isEmpty()) {
