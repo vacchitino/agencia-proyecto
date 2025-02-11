@@ -1,5 +1,6 @@
 package controlador;
 
+import vista.VistaAgregarEmpleado;
 import vista.VistaPrincipal;
 import modelo.*;
 import java.awt.event.ActionEvent;
@@ -20,22 +21,10 @@ public class ControladorEmpresa {
         this.vista.agregarListenerAgregarEmpleado(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                try {
-                    String documento = vista.getDocumento();
-                    String nombre = vista.getNombre();
-                    double sueldoBruto = vista.getSueldoBruto();
-                    double aniosAntiguedad = vista.getAniosAntiguedad();
-                    String obraSocial = vista.getObraSocial();
-
-                    // SOLUCIÓN: Creamos un empleado PERMANENTE por defecto (o puedes agregar una opción en la vista)
-                    Empleado empleado = new EmpleadoPermanente(documento, nombre, sueldoBruto, aniosAntiguedad, obraSocial);
-                    
-                    empresa.agregarEmpleado(empleado);
-                    vista.mostrarResultado("Empleado agregado: " + empleado.getNombre());
-
-                } catch (NumberFormatException ex) {
-                    vista.mostrarResultado("Error: Ingrese un sueldo válido.");
-                }
+                //Crea una nueva instancia de la ventana agregar empleado
+            	VistaAgregarEmpleado vistaAgregar = new VistaAgregarEmpleado();
+                new ControladorEmpleado(empresa, vistaAgregar);
+                vistaAgregar.setVisible(true);
             }
         });
 
@@ -64,5 +53,6 @@ public class ControladorEmpresa {
                 }
             }
         });
+        
     }
 }

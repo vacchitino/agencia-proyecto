@@ -1,7 +1,7 @@
 package ejecucion;
 
 import modelo.Empresa;
-import vista.VistaPrincipal;
+import vista.*;
 import controlador.ControladorEmpresa;
 
 public class Usuario {
@@ -11,6 +11,8 @@ public class Usuario {
 
         // Crear la vista (interfaz gráfica)
         VistaPrincipal vista = new VistaPrincipal();
+        
+       
 
         // Crear el controlador y enlazarlo con la vista y el modelo
         ControladorEmpresa controlador = new ControladorEmpresa(vista, empresa);

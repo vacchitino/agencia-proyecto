@@ -1,15 +1,11 @@
 package vista;
 import javax.swing.*;
 
+import java.awt.GridLayout;
 import java.awt.HeadlessException;
 import java.awt.event.ActionListener;
 
 public class VistaPrincipal extends JFrame{
-	private JTextField campoDocumento;
-	private JTextField campoNombre;
-	private JTextField campoSueldoBruto;
-	private JTextField campoAniosAntiguedad;
-	private JTextField campoObraSocial;
 	private JButton btnAgregarEmpleado;
 	private JButton btnEliminarEmpleado;
 	private JButton btnExisteEmpleado;
@@ -26,29 +22,18 @@ public class VistaPrincipal extends JFrame{
 		JPanel panel = new JPanel();
 		panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 		
-		campoDocumento = new JTextField(15);
-		campoNombre= new JTextField(15);
-		campoSueldoBruto = new JTextField(15);
-		campoAniosAntiguedad = new JTextField(15);
-		campoObraSocial = new JTextField(15);
 		btnAgregarEmpleado = new JButton("Agregar empleado");
+		btnAgregarEmpleado.setLayout(new GridLayout(2, 2, 5, 5));
 		btnEliminarEmpleado = new JButton("Eliminar empleado");
+		btnEliminarEmpleado.setLayout(new GridLayout(2, 2, 5, 5));
 		btnExisteEmpleado = new JButton("Comprobar la carga del empleado");
+		btnExisteEmpleado.setLayout(new GridLayout(2, 2, 5, 5));
 		btnEmpleadoMayorSueldo = new JButton("Mostrar el empleado con mayor sueldo");
+		btnEmpleadoMayorSueldo.setLayout(new GridLayout(2, 2, 5, 5));
 		
 		areaResultado = new JTextArea(10, 30);
 		areaResultado.setEditable(false);
 		
-		panel.add(new JLabel("Documento:"));
-		panel.add(campoDocumento);
-		panel.add(new JLabel("Nombre:"));
-		panel.add(campoNombre);
-		panel.add(new JLabel("Sueldo Bruto:"));
-		panel.add(campoSueldoBruto);
-		panel.add(new JLabel("Años de antiguedad:"));
-		panel.add(campoAniosAntiguedad);
-		panel.add(new JLabel("Obra Social:"));
-		panel.add(campoObraSocial);
 		panel.add(btnAgregarEmpleado);
 		panel.add(btnEliminarEmpleado);
 		panel.add(btnExisteEmpleado);
@@ -56,22 +41,6 @@ public class VistaPrincipal extends JFrame{
 		panel.add(new JScrollPane());
 		
 		add(panel);
-		
-	}
-	public String getDocumento() {
-		return campoDocumento.getText();
-	}
-	public String getNombre() {
-		return campoNombre.getText();
-	}
-	public double getSueldoBruto() {
-		return Double.parseDouble(campoSueldoBruto.getText());
-	}
-	public double getAniosAntiguedad() {
-		return Double.parseDouble(campoAniosAntiguedad.getText());
-	}
-	public String getObraSocial() {
-		return campoObraSocial.getText();
 	}
 	public void agregarListenerAgregarEmpleado(ActionListener listener) {
 		btnAgregarEmpleado.addActionListener(listener);
